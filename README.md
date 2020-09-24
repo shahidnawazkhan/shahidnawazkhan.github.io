@@ -1,5 +1,5 @@
-# A website for Dapeng Li's CV
-Thi project hosts Dapeng's CV
+# A website for Shahid Nawaz Khan's CV
+Thi project hosts Shahid Nawaz Khan's CV
 
 ## Getting Started
 
