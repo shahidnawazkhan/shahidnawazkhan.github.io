@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Webmap 201</title>
+        <link rel="stylesheet" href="src/leaflet.css">
+        <link rel="stylesheet" href="src/css/bootstrap.css">
+      
+        <script src="src/leaflet-src.js"></script>
+        <script src="src/jquery-3.2.0.min.js"></script>
+        <script src="src/plugins/leaflet-providers.js"></script>
+        <script src="src/plugins/leaflet.ajax.min.js"></script>
+        <script src="src/jquery-ui.min.js"></script>
+        <script src="src/turf.min.js"></script>
+        
+
+        <style>
+            #mapdiv {
+                height:100vh;
+            }
+            h4{
+                 font-family:Palatino Linotype;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        
+        <div id="mapdiv" class="col-md-12"></div>
+        <script>
+            var mymap;
+            var lyrOSM;
+            var lyrWatercolor;
+            var lyrTopo;
+            var lyrImagery;
+            var lyrOutdoors;
+            var ciscopoints;
+            var senate;
+            var house;
+            var istanbulvisitplaceslayer;
+            
+            var colorlist= ['#B0171F','#DC143C','#8B5F65','#EEE0E5','#CDC1C5','#8B8386','#FF3E96','#CD69C9','#8B4789','#D8BFD8','#800080','#BA55D3','#E066FF','#9A32CD','#68228B','#4B0082','#000080','#191970','#3D59AB','#27408B','#6495ED','#B0C4DE','#CAE1FF','#BCD2EE','#708090','#C6E2FF','#B9D3EE','#9FB6CD','#6C7B8B','#00868B','#5F9EA0','#00CED1','#C1CDCD','#838B8B','#E0FFFF','#7A8B8B','#2F4F4F','#6B8E23','#C0FF3E','#EEEED1','#CDCDB4','#8B8B7A','#FAFAD2','#EEE9BF','#CDC9A5','#8B8970','#8B8378','#DEB887','#FFD39B','#EEC591','#CDAA7D','#FFC1C1','#EEB4B4','#CD9B9B','#8B6969','#F08080','#CD5C5C'];
+
+            $(document).ready(function(){
+                
+                //  ********* Map Initialization ****************
+                
+                mymap = L.map('mapdiv', {center:[41.0200155,28.9710314], zoom:14, attributionControl:false});
+                
+                
+                
+                //   *********** Layer Initialization **********
+                
+                lyrOSM = L.tileLayer.provider('OpenStreetMap.Mapnik');
+                lyrTopo = L.tileLayer.provider('OpenTopoMap');
+                lyrImagery = L.tileLayer.provider('Esri.WorldImagery');
+                lyrOutdoors = L.tileLayer.provider('Thunderforest.Outdoors');
+                lyrWatercolor = L.tileLayer.provider('Stamen.Watercolor');
+                mymap.addLayer(lyrOSM);
+
+                       
+               /*house = L.geoJSON.ajax('data/house.geojson', {pointToLayer: {},onEachFeature: houseprocess, style: housestyle});
+                house.on('data:loaded', function(){
+
+                    house.bringToBack();
+                
+                               }); */
+
+
+                /*ciscopoints = L.geoJSON.ajax('data/cisco.geojson', {pointToLayer:returnEagleMarker, onEachFeature: onEachFeature}).addTo(mymap);
+                ciscopoints.on('data:loaded', function(){
+                
+                    //mymap.fitBounds(ciscopoints.getBounds());
+                });*/
+
+
+            istanbulvisitplaceslayer = L.geoJSON.ajax('data/istanbulvisitplaces.geojson', {pointToLayer:returnEagleMarker, onEachFeature: oneachfacilities}).addTo(mymap);
+                
+                
+           
+          
+                
+                objBasemaps = {
+                    "Open Street Maps": lyrOSM,
+                    "Topo Map":lyrTopo,
+                    "Imagery":lyrImagery,
+                    "Outdoors":lyrOutdoors,
+                    "Watercolor":lyrWatercolor
+                };
+                
+                objOverlays = {
+                    
+                    //"Cisco Points":ciscopoints,
+                    //"Senate Districts":senate,
+                    //"House":house,
+                    "Istanbul":istanbulvisitplaceslayer
+                   
+                };
+                
+                ctlLayers = L.control.layers(objBasemaps, objOverlays).addTo(mymap);
+                
+                // **********  Setup Draw Control ****************
+    
+                
+            });
+
+            
+            function returnEagleMarker(json, latlng){
+               
+                //return L.circle(latlng, {radius:1000, color:'black',fillColor:'chartreuse', fillOpacity:0.5});
+               return L.marker(latlng);
+            }
+ var firefoxIcon = L.icon({
+        iconUrl: 'data/33622.svg',
+        iconSize: [40, 40], // size of the icon
+        });
+
+            function returnfacility(json, latlng){
+                //return L.marker(latlng, {icon: firefoxIcon});
+
+
+               
+            return L.circle(latlng, {radius:3000, color:'black',fillColor:'chartreuse', fillOpacity:0.5});
+              // return L.marker(latlng);
+            }
+
+
+
+
+
+             function onEachFeature(feature, layer) {
+
+            layer.bindPopup("<h4> <b>Name</b>: "+feature.properties.NAME+"<br><b>Address</b>: "+feature.properties.Address+"</h4>");
+               // body...
+           }
+
+             function oneachfacilities(feature, layer) {
+
+            layer.bindPopup("<h4> <b>Name</b>: "+feature.properties.Name+"<hr><b>Description</b>: "+feature.properties.Description+"</h4>");
+               // body...
+           }
+
+
+           function senateprocess(feature,layer)
+                { var partys= '';
+                  var partya1= '';
+                  var partya2= '';
+
+
+
+                    if (feature.properties.legS_PARTY==='R')
+                    {
+                        partys='Repulican';
+                    }
+
+                    else
+                    {
+                        partys= 'Democratic';
+                    }
+
+                    if (feature.properties.legA1_PARTY==='R')
+                    {
+                        partya1='Repulican';
+                    }
+
+                    else
+                    {
+                        partya1= 'Democratic';
+                    }
+
+                    if (feature.properties.legA2_PARTY==='R')
+                    {
+                        partya2='Repulican';
+                    }
+
+                    else
+                    {
+                        partya2= 'Democratic';
+                    }
+
+/*                  { "district": "1", "legOBJECTID": 1, "legDISTRICT": 1, "legDIST_LABEL": "District 1", "legSENATE": "BOB  ANDRZEJCZAK", "legS_PARTY": "D", "legS_REP": "Senator  BOB  ANDRZEJCZAK - Democrat", "legASSEMBLY1": "MATTHEW W. MILAM", "legA1_PARTY": "D", "legA1_REP": "Assemblyman MATTHEW W. MILAM - Democrat", "legASSEMBLY2": "R. BRUCE LAND", "legA2_PARTY": "D", "legA2_REP": "Assemblyman R. BRUCE LAND - Democrat" }*/
+//                    layer.bindPopup("<h4>"+feature.properties.Name+"</h4>");
+                    layer.bindPopup("<h4 align='center'> Showing Senate Info</h4><table class='table'> <tr> <th>District#</th> <th>Senator</th><th>Party</th> </tr> <tr> <td>"+feature.properties.district+"</td> <td>"+feature.properties.legSENATE+"</td><td>"+partys+"</td> </tr></table><h4 align='center'> Showing Assembly 1 Info</h4><table class='table'> <tr> <th>District#</th> <th>Senator</th><th>Party</th> </tr> <tr> <td>"+feature.properties.district+"</td> <td>"+feature.properties.legASSEMBLY1+"</td><td>"+partya1+"</td> </tr></table><h4 align='center'> Showing Assembly 2 Info</h4><table class='table'> <tr> <th>District#</th> <th>Senator</th><th>Party</th> </tr> <tr> <td>"+feature.properties.district+"</td> <td>"+feature.properties.legASSEMBLY2+"</td><td>"+partya2+"</td> </tr></table>");
+                }
+            
+
+            function houseprocess(feature,layer)
+                { var party= '';
+                    if (feature.properties.senatedis_Party==='R')
+                    {
+                        party='Repulican';
+                    }
+
+                    else
+                    {
+                        party= 'Democratic';
+                    }
+//                    layer.bindPopup("<h4>"+feature.properties.Name+"</h4>");
+                    layer.bindPopup("<h4 align='center'> Showing House Info</h4><table class='table'> <tr> <th>District#</th> <th>Representative</th><th>Party</th> </tr> <tr> <td>"+feature.properties.district_n+"</td> <td>"+feature.properties.representative+"</td><td>"+party+"</td> </tr></table>");   
+
+                }
+
+                //
+  
+        function senatestyle(feature) {
+
+                        var oid= feature.properties.district;
+
+                      
+                      return {color: 'black', fillColor: colorlist[oid], fillOpacity: 0.6};
+
+                  }
+          
+        function housestyle(feature) {
+
+                        var oid= feature.properties.district_1;
+
+                      
+                      return {color: 'black', fillColor: colorlist[oid], fillOpacity: 0.6};
+
+                  }
+$('body').on('contextmenu', function()
+            {
+                alert("No, that's not fair. Right clicks are not allowed :)");
+                return false;
+
+            });
+
+
+
+
+
+        </script>
+    </body>
+</html>
