@@ -12,6 +12,10 @@
         <script src="src/plugins/leaflet.ajax.min.js"></script>
         <script src="src/jquery-ui.min.js"></script>
         <script src="src/turf.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@[VERSION]/dist/L.Control.Locate.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@[VERSION]/dist/L.Control.Locate.min.js" charset="utf-8"></script>
         
 
         <style>
@@ -47,6 +51,8 @@
                 //  ********* Map Initialization ****************
                 
                 mymap = L.map('mapdiv', {center:[41.0200155,28.9710314], zoom:14, attributionControl:false});
+                L.control.locate().addTo(mymap);
+
                 
                 
                 
