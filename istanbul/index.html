@@ -85,7 +85,7 @@
                 });*/
 
 
-            istanbulvisitplaceslayer = L.geoJSON.ajax('data/istanbulvisitplaces.geojson', {pointToLayer:returnEagleMarker, onEachFeature: oneachfacilities}).addTo(mymap);
+            istanbulvisitplaceslayer = L.GeoJSON.AJAX('data/istanbulvisitplaces.geojson', {pointToLayer:returnEagleMarker, onEachFeature: oneachfacilities}).addTo(mymap);
                 
                 
            
