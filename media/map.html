@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet GeoJSON Line Styling</title>
+  <!-- Include Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <!-- Include Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <style>
+    #map { /* Specify the size of the map */
+      height: 900px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    // Create a map
+    var map = L.map('map').setView([42.3375,-83.034], 15); // London coordinate
+    // Add a tile layer (optional)
+    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+    });
+
+var osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'}).addTo(map);
+
+    // Your GeoJSON data
+    var geojsonFeature = {
+      "type": "Feature",
+      "properties": {
+        "name": "Sample Line"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-0.13, 51.51], // London coordinates
+          [-0.10, 51.50], // London coordinates
+          [-0.09, 51.49], // London coordinates
+          // Add more coordinates as needed
+        ]
+      }
+    };
+
+// Function to style the line based on route type
+    function styleFunction(feature) {
+      // Check if the route is a racetrack
+      if (feature.properties.bridge === "1") {
+        return {
+          color: "blue",    // Red color for racetrack
+          weight: 5,
+          opacity: 0.65
+        };
+      } 
+
+    else if (feature.properties.racetrack === 1 && feature.properties.bridge === null) {
+        return {
+          color: "red",    // Red color for racetrack
+          weight: 5,
+          opacity: 0.65
+        };
+      } 
+
+      else {
+        // Green color for other routes
+        return {
+          color: "green",
+          weight: 5,
+          opacity: 0.65
+        };
+      }
+    }
+
+    // Add GeoJSON layer with style
+   // Load GeoJSON data from a file
+    fetch('data.geojson')
+      .then(response => response.json())
+      .then(data => {
+        // Add GeoJSON layer with style function
+        L.geoJSON(data, {
+          style: styleFunction
+        }).addTo(map);
+      })
+      .catch(error => {
+        console.error('Error loading GeoJSON:', error);
+      });
+
+  var baseMaps = {
+    "OpenStreetMap": osm,
+    "OpenStreetMap.HOT": osmHOT
+};
+ L.control.layers(baseMaps).addTo(map);
+var overlayMaps = {
+    
+};
+  </script>
+</body>
+</html>
