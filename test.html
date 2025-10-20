@@ -1,265 +1,305 @@
-﻿<!DOCTYPE html>
-<!-- saved from url=(0057)file:///D:/Project/mywebsite/uuwebsite/hashtaghealth.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <title>hashtaghealth.html</title>
-
-    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-    <meta http-equiv="description" content="this is my page">
-
-
-    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-
- 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-
-
-	<style>
-        body {
-            padding: 0;
-            margin: 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAV Remote Sensing Training Course</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define a professional color palette and font settings */
+        :root {
+            --color-primary: #0f172a; /* Slate 900 - Dark Blue/Black */
+            --color-secondary: #1e40af; /* Blue 700 - Accent Blue */
+            --color-background: #f8fafc; /* Slate 50 - Off-White */
+            --color-card-bg: #ffffff;
+            --color-border: #e2e8f0; /* Slate 200 */
         }
-        html, body, #map {
-            height: 100%;
-            width: 100%;
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-primary);
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .header-section {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 4rem 1.5rem;
+            border-radius: 0.75rem 0.75rem 0 0;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.5);
+            margin-bottom: 2rem;
+        }
+        .card {
+            background-color: var(--color-card-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--color-border);
+        }
+        
+        /* Schedule Table Styling */
+        .daily-schedule-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .daily-schedule-table th, .daily-schedule-table td {
+            padding: 1.25rem 1rem;
+            text-align: left;
+            border-right: none;
+            /* Ensure all content in td is normal weight */
+            font-weight: 400; 
+        }
+        .daily-schedule-table th {
+            background-color: #e0e7ff; /* Indigo 100 */
+            color: var(--color-secondary);
+            font-weight: 700;
+            border-bottom: 2px solid var(--color-secondary);
+        }
+        .daily-schedule-table td {
+            border-bottom: 1px solid var(--color-border);
+        }
+        .daily-schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .day-highlight {
+            background-color: #f0f4ff; /* Lighter Indigo for day labels */
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+        /* Specific rule to prevent bolding of any kind inside table cells */
+        .daily-schedule-table td strong {
+             font-weight: inherit !important; 
         }
     </style>
-  </head>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="container mx-auto">
+        <!-- Header Section -->
+        <header class="header-section text-center">
+            <p class="text-xl font-medium uppercase tracking-widest text-blue-300 mb-2">
+                Jointly Hosted by China Pakistan Joint Research Center (CPJRC) & IGIS NUST
+            </p>
+            <h1 class="text-5xl sm:text-6xl font-extrabold mb-3">UAV Remote Sensing Training</h1>
+            <h2 class="text-2xl sm:text-3xl font-light">Theory & Disaster Management Practice</h2>
+            <p class="mt-4 text-gray-300 max-w-2xl mx-auto">Master the science of aerial data acquisition and application for critical decision support during emergencies.</p>
+        </header>
 
-  <body>
-  	<div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim" tabindex="0" style="position: relative;"><div class="leaflet-map-pane" style="transform: translate3d(27px, 0px, 0px);"><div class="leaflet-tile-pane"><div class="leaflet-layer"><div class="leaflet-tile-container"></div><div class="leaflet-tile-container leaflet-zoom-animated"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/95.png" style="height: 256px; width: 256px; left: 387px; top: 567px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/96.png" style="height: 256px; width: 256px; left: 387px; top: 823px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/95(1).png" style="height: 256px; width: 256px; left: 131px; top: 567px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/95(2).png" style="height: 256px; width: 256px; left: 643px; top: 567px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/96(1).png" style="height: 256px; width: 256px; left: 131px; top: 823px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/96(2).png" style="height: 256px; width: 256px; left: 643px; top: 823px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/97.png" style="height: 256px; width: 256px; left: 387px; top: 1079px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/94.png" style="height: 256px; width: 256px; left: 387px; top: 311px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/94(1).png" style="height: 256px; width: 256px; left: 643px; top: 311px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/97(1).png" style="height: 256px; width: 256px; left: 643px; top: 1079px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/97(2).png" style="height: 256px; width: 256px; left: 131px; top: 1079px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/94(2).png" style="height: 256px; width: 256px; left: 131px; top: 311px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/96(3).png" style="height: 256px; width: 256px; left: 899px; top: 823px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/95(3).png" style="height: 256px; width: 256px; left: -125px; top: 567px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/96(4).png" style="height: 256px; width: 256px; left: -125px; top: 823px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/95(4).png" style="height: 256px; width: 256px; left: 899px; top: 567px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/97(3).png" style="height: 256px; width: 256px; left: -125px; top: 1079px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/98.png" style="height: 256px; width: 256px; left: 387px; top: 1335px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/94(3).png" style="height: 256px; width: 256px; left: -125px; top: 311px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/94(4).png" style="height: 256px; width: 256px; left: 899px; top: 311px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/97(4).png" style="height: 256px; width: 256px; left: 899px; top: 1079px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/93.png" style="height: 256px; width: 256px; left: 387px; top: 55px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/93(1).png" style="height: 256px; width: 256px; left: 643px; top: 55px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/98(1).png" style="height: 256px; width: 256px; left: 131px; top: 1335px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/98(2).png" style="height: 256px; width: 256px; left: 643px; top: 1335px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/93(2).png" style="height: 256px; width: 256px; left: 131px; top: 55px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/98(3).png" style="height: 256px; width: 256px; left: 899px; top: 1335px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/93(3).png" style="height: 256px; width: 256px; left: 899px; top: 55px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/98(4).png" style="height: 256px; width: 256px; left: -125px; top: 1335px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/93(4).png" style="height: 256px; width: 256px; left: -125px; top: 55px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/99.png" style="height: 256px; width: 256px; left: 387px; top: 1591px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/92.png" style="height: 256px; width: 256px; left: 387px; top: -201px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/92(1).png" style="height: 256px; width: 256px; left: 643px; top: -201px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/99(1).png" style="height: 256px; width: 256px; left: 131px; top: 1591px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/99(2).png" style="height: 256px; width: 256px; left: 643px; top: 1591px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/92(2).png" style="height: 256px; width: 256px; left: 131px; top: -201px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/92(3).png" style="height: 256px; width: 256px; left: -125px; top: -201px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/92(4).png" style="height: 256px; width: 256px; left: 899px; top: -201px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/99(3).png" style="height: 256px; width: 256px; left: -125px; top: 1591px;"><img class="leaflet-tile leaflet-tile-loaded" src="./hashtaghealth_files/99(4).png" style="height: 256px; width: 256px; left: 899px; top: 1591px;"></div></div></div><div class="leaflet-objects-pane"><div class="leaflet-shadow-pane"></div><div class="leaflet-overlay-pane"></div><div class="leaflet-marker-pane"></div><div class="leaflet-popup-pane"><div class="leaflet-popup  leaflet-zoom-animated" style="opacity: 1; transform: translate3d(146px, 258px, 0px); bottom: -7px; left: -163px;"><a class="leaflet-popup-close-button" href="file:///D:/Project/mywebsite/uuwebsite/hashtaghealth.html#close">�</a><div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 285px;">You clicked the map at LatLng(43.2812, -113.82385)</div></div><div class="leaflet-popup-tip-container"><div class="leaflet-popup-tip"></div></div></div></div></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="file:///D:/Project/mywebsite/uuwebsite/hashtaghealth.html#" title="Zoom in">+</a><a class="leaflet-control-zoom-out" href="file:///D:/Project/mywebsite/uuwebsite/hashtaghealth.html#" title="Zoom out">-</a></div></div><div class="leaflet-top leaflet-right"><div class="leaflet-control-layers leaflet-control" aria-haspopup="true"><a class="leaflet-control-layers-toggle" href="file:///D:/Project/mywebsite/uuwebsite/hashtaghealth.html#" title="Layers"></a><form class="leaflet-control-layers-list"><div class="leaflet-control-layers-base"><label><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers"><span> Restaurants</span></label><label><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers"><span> Parks</span></label><label><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers"><span> OSM parks</span></label><label><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers"><span> OSM Restaurants</span></label></div><div class="leaflet-control-layers-separator" style="display: none;"></div><div class="leaflet-control-layers-overlays"></div></form></div></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com/" title="A JS library for interactive maps">Leaflet</a> | Map data ? <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors</div></div></div></div>
-<!--    // <div id="map" style="width: 600px; height: 400px"></div> -->
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <!-- General Information -->
+        <div class="card mt-[-2rem] relative z-10">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-100 pb-3">I. Course Information</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-lg items-center">
+                
+                <!-- Registration Link Box -->
+                <div class="p-4 bg-white rounded-lg border border-red-300 shadow-xl text-center md:col-span-1 order-last md:order-first">
+                    <p class="font-bold text-lg text-red-600 mb-2">Conference Registration</p>
+                    <a href="https://forms.office.com/r/2FzquZWw0f" target="_blank" class="inline-block px-4 py-2 text-base font-semibold text-white bg-red-600 rounded-lg shadow-md hover:bg-red-700 transition duration-300 ease-in-out">
+                        Click to Register
+                    </a>
+                    <p class="text-sm mt-2 text-gray-600 truncate">https://forms.office.com/r/2FzquZWw0f</p>
+                </div>
 
-	<script>
-// 		set Salt Lake City at the center 40.78054, -111.9342
+                <!-- Duration & Dates -->
+                <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                    <p class="font-bold text-lg text-red-600 mb-1">Duration & Dates:</p>
+                    <p>4 Days, <strong>17–20 November 2025</strong></p>
+                </div>
+                <!-- Venue -->
+                <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                    <p class="font-bold text-lg text-red-600 mb-1">Venue:</p>
+                    <p>National University of Science and Technology (NUST), Islamabad, Pakistan</p>
+                </div>
+                <!-- Target Audience -->
+                <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                    <p class="font-bold text-lg text-red-600 mb-1">Target Audience:</p>
+                    <p>30 Participants (Disaster Management Staff, Researchers, Faculty)</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <p class="text-xl font-semibold text-gray-700">Course Objective:</p>
+                    <p class="text-base text-gray-600 mt-2 italic border-l-4 border-secondary pl-3">To enable personnel to master basic UAV remote sensing data collection, processing, and analysis skills, thereby enhancing their ability to assist in disaster management decisions through efficient and accurate technical support.</p>
+                </div>
+                <!-- New Query/Contact Information Box -->
+                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-300 text-center">
+                    <p class="font-bold text-lg text-yellow-800 mb-1">For Course Queries:</p>
+                    <p class="text-base text-yellow-700 font-semibold break-words">
+                        <a href="mailto:NUST_CPJRC_WRKSHP_2025@igis.nust.edu.pk" class="hover:underline">
+                            NUST_CPJRC_WRKSHP_2025@igis.nust.edu.pk
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
 
-		var map = L.map('map').setView([40.78054, -111.9342], 8);
-// 		var map = L.map('map', { //.setView([40.78054, -111.9342], 8);
-// 			center: [40.78054, -111.9342],
-// 			zoom: 8,
-// 			layers: [grayscale, cities]
-// 		});
-		var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-		var osmAttrib='Map data ? <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-		var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 14, attribution: osmAttrib});
-		map.addLayer(osm);
+        <!-- Daily Schedule Section -->
+        <div class="card">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-100 pb-3">II. Daily Schedule & Curriculum</h3>
+            
+            <p class="text-xl font-medium text-gray-700 mb-6">Daily Hours: <strong>9:00 AM – 12:00 PM</strong> (Morning) and <strong>2:00 PM – 5:00 PM</strong> (Afternoon)</p>
 
+            <div class="overflow-x-auto shadow-lg rounded-lg">
+                <table class="daily-schedule-table w-full">
+                    <thead>
+                        <tr class="text-sm uppercase tracking-wider">
+                            <th class="w-1/6 rounded-tl-lg">Day</th>
+                            <th class="w-2/6">Topic/Activity</th>
+                            <th class="w-3/6 rounded-tr-lg">Detailed Content</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Day 1 Content (Extracted from PDF) -->
+                        <tr class="day-highlight">
+                            <td>Day 1</td>
+                            <td colspan="2" class="text-center">Inauguration, Fundamentals, and Disaster Application Scenarios</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Registration and Opening Ceremony</td>
+                            <td>Welcome address and Inauguration of the Workshop</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Basics of Unmanned Aerial Vehicles and Remote Sensing Principles and Practice</td>
+                            <td>
+                                1. Introduction to UAVs: Definition, development, and characteristics of UAVs; related norms and regulations; relevant administrative departments and general operation procedures; analysis of the requirements for aircraft platforms in remote sensing; selection principles of remote sensing aircraft (model, flight time, flight altitude, flight speed, payload carrying capacity, and integration scheme).
+                                <br><br>
+                                2. Remote Sensing Basics: Foundation of Photogrammetry, Remote sensing applications, Formulation and evaluation of remote sensing flight plans (survey area scope, sensor types, overlap rate, resolution, operation efficiency, outcome accuracy, safety factors).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>The application fields and advantages of UAV remote sensing in disaster management</td>
+                            <td>
+                                3. Application Areas: Disaster Risk Assessment (analyzing the influence of terrain and land use types on the susceptibility of disasters), Disaster Monitoring and Early Warning (real-time monitoring of the precursors of disasters like landslides, debris flows, floods, and earthquakes), Emergency Response (rapid acquisition of information, planning the best rescue routes), Disaster Loss Assessment and Post-disaster recovery (accurate statistics of damage to houses, infrastructure, crops, etc., quantifying disaster losses).
+                            </td>
+                        </tr>
 
-/* 		L.marker([51.5, -0.09]).addTo(map)
-			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+                        <!-- Day 2 Content (Extracted from PDF) -->
+                        <tr class="day-highlight">
+                            <td>Day 2</td>
+                            <td colspan="2" class="text-center">Data Acquisition, Processing Theory, and Modeling</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Principles and Flight Planning of UAV Remote Sensing Data Acquisition</td>
+                            <td>
+                                4. UAV Remote Sensing Application: Sensors: Basic principles of data acquisition, Imaging Principles of Sensors (Optical, Spectral Imaging Systems, LiDAR), pre-processing methods (geometric correction and radiometric calibration), Principles and methods of UAV flight planning (delineation of flight areas, determination of flight altitude and speed, route planning).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Data Processing for UAV Remote Sensing Applications</td>
+                            <td>
+                                1. Application of UAV Remote Sensing in Data Processing: Position and Attitude Data Processing, Rectification and 3D Data Processing, Oblique Photography Measurement Data Processing. Includes POS data organization, image pre-processing, image quick stitching, registration and correction, output of results, and Oblique photography data acquisition and processing (checking, importing, adjustment, modeling, output).
+                            </td>
+                        </tr>
+                        
+                        <!-- Day 3 Content (Extracted from PDF) -->
+                        <tr class="day-highlight">
+                            <td>Day 3</td>
+                            <td colspan="2" class="text-center">Hands-On Practice & Disaster Case Studies</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Practical Operations</td>
+                            <td>
+                                1. Practical Operations and Mission Flight of UAV (Basic operations, emergency take-off and landing skills, Mission route planning).
+                                2. Data collection practice: Multi-source data acquisition (orthophoto, Oblique photography, infrared thermal images).
+                                3. UAV data pre-processing and analysis: orthophoto data processing, Oblique photography data processing, Rapid disaster loss assessment (change detection, 3D modeling: Data processing of landslide body displacement data, etc.).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Applications and Case Studies</td>
+                            <td>
+                                1. Flood risk assessment of Attabad lake: adopting a scenario-based approach for disaster preparedness.
+                                2. Scenario-based HEC-RAS 2D unsteady flow analysis of Shisper Lake for GLOF risk assessment.
+                                3. Riverine flood assessment in Jhang district in connection with ENSO and summer monsoon rainfall over Upper Indus Basin for 2010.
+                            </td>
+                        </tr>
 
-		L.circle([51.508, -0.11], 500, {
-			color: 'red',
-			fillColor: '#f03',
-			fillOpacity: 0.5
-		}).addTo(map).bindPopup("I am a circle.");
+                        <!-- Day 4 Content (Extracted from PDF) -->
+                        <tr class="day-highlight">
+                            <td>Day 4</td>
+                            <td colspan="2" class="text-center">Review, Communication, and Closing Ceremony</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Practice, Communication, and Summary</td>
+                            <td>
+                                1. Open Session: Communication among the participants; Questions and Answers.
+                                2. Closing Ceremony: Summary of the training course and remarks by dignities; Conferring certificates to the Participants.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-		L.polygon([
-			[51.509, -0.08],
-			[51.503, -0.06],
-			[51.51, -0.047]
-		]).addTo(map).bindPopup("I am a polygon."); */
+        <!-- Lecturer Information -->
+        <div class="card">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-indigo-100 pb-3">III. Expert Lecturers</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <div class="flex items-start space-x-4 p-5 bg-gray-50 rounded-xl border border-blue-100 transition duration-300 hover:shadow-md">
+                    <span class="text-4xl text-blue-600 font-extrabold flex-shrink-0">1</span>
+                    <div>
+                        <p class="font-bold text-xl text-blue-900">Dr. SHI Pilong</p>
+                        <p class="text-sm text-gray-600 italic">Associate Professor, Aerospace Information Research Institute (CAS)</p>
+                        <p class="text-sm mt-2 text-gray-700">Expert in remote sensing in geoscience, fine digitalization, and modeling of cultural heritage by UAV. Lead researcher on National 863 Program and international cooperation projects.</p>
+                    </div>
+                </div>
 
-	    var rootURL = 'http://dapeng.chpc.utah.edu:8081'
+                <div class="flex items-start space-x-4 p-5 bg-gray-50 rounded-xl border border-blue-100 transition duration-300 hover:shadow-md">
+                    <span class="text-4xl text-blue-600 font-extrabold flex-shrink-0">2</span>
+                    <div>
+                        <p class="font-bold text-xl text-blue-900">Dr. LI Dong</p>
+                        <p class="text-sm text-gray-600 italic">Senior Engineer, Aerospace Information Research Institute (CAS)</p>
+                        <p class="text-sm mt-2 text-gray-700">Specializes in processing remote sensing images, laser point cloud data, and <strong>3D reconstruction</strong>. Holds 6 patents and 10 software copyrights related to his research fields.</p>
+                    </div>
+                </div>
 
-		var popup = L.popup();
-	    var intLayers = [];
-	    var intLayersString = "";
+                <div class="flex items-start space-x-4 p-5 bg-gray-50 rounded-xl border border-blue-100 transition duration-300 hover:shadow-md">
+                    <span class="text-4xl text-blue-600 font-extrabold flex-shrink-0">3</span>
+                    <div>
+                        <p class="font-bold text-xl text-blue-900">Dr. Javed Iqbal</p>
+                        <p class="text-sm text-gray-600 italic">Professor, IGIS, NUST</p>
+                        <p class="text-sm mt-2 text-gray-700">A seasoned academician with over three decades of experience. Expertise includes <strong>natural hazard mapping</strong> (landslides, GLOF, flash floods) and has authored over 200 scholarly contributions.</p>
+                    </div>
+                </div>
 
-	  	function handleJson(data) {
-	        selectedFeature = L.geoJson(data, {
-	            style: function (feature) {
-	                return {color: 'yellow'};
-	            },
-	            onEachFeature: function (feature, layer) {
-	                var content = "";
-	                content = content + "<b><u>" + feature.id.split('.')[0] + "</b></u><br>";
-	                delete feature.properties.bbox;
-	                for (var name in feature.properties) {content = content + "<b>" + name + ":</b> " + feature.properties[name] + "<br>"};
-	                var popup = L.popup()
-	                    .setLatLng(queryCoordinates)
-	                    .setContent(content)
-	                    .openOn(map);
-	                layer.bindPopup(content);
-	                layer.on({
-	                    mouseover: highlightFeature,
-	                    mouseout: resetHighlight
-	                });
-	            },
-	            pointToLayer: function (feature, latlng) {
-	                return L.circleMarker(latlng, {
-	                    radius: 5,
-	                    fillColor: "yellow",
-	                    color: "#000",
-	                    weight: 5,
-	                    opacity: 0.6,
-	                    fillOpacity: 0.2
-	                });
-	            }
-	        });
-	        selectedFeature.addTo(map);
-	    }
-		function onMapClick(e) {
-			var owsrootUrl = rootURL + '/geoserver/cite/wms';
-			popup
-			.setLatLng(e.latlng)
-			.setContent("You clicked the map at " + e.latlng.toString())
-			.openOn(map);
+                <div class="flex items-start space-x-4 p-5 bg-gray-50 rounded-xl border border-blue-100 transition duration-300 hover:shadow-md">
+                    <span class="text-4xl text-blue-600 font-extrabold flex-shrink-0">4</span>
+                    <div>
+                        <p class="font-bold text-xl text-blue-900">Dr. Shahid Nawaz Khan</p>
+                        <p class="text-sm text-gray-600 italic">Assistant Professor, IGIS, NUST</p>
+                        <p class="text-sm mt-2 text-gray-700">Expert in GIS and Remote Sensing applications for environmental and disaster-related studies. His research contributes to effective spatial data analysis and modeling for risk assessment.</p>
+                    </div>
+                </div>
 
-	        params = {
-	                request: 'GetFeatureInfo',
-	                service: 'WMS',
-	                srs: 'EPSG:4326',
-	                styles: this.wmsParams.styles,
-	                transparent: this.wmsParams.transparent,
-	                version: this.wmsParams.version,
-	                format: this.wmsParams.format,
-	                bbox: map.getBounds().toBBoxString(),
-	                height: size.y,
-	                width: size.x,
-	                layers: this.wmsParams.layers,
-	                query_layers: this.wmsParams.layers,
-	                info_format: 'text/html'
-	              };
-	        var customParams = {
-	            //bbox : map.getBounds().toBBoxString(),
-	            cql_filter:'DWithin(geom, POINT(' + e.latlng.lng + ' ' + e.latlng.lat + '), 10, meters)'
-	        };
+                <div class="flex items-start space-x-4 p-5 bg-gray-50 rounded-xl border border-blue-100 transition duration-300 hover:shadow-md">
+                    <span class="text-4xl text-blue-600 font-extrabold flex-shrink-0">5</span>
+                    <div>
+                        <p class="font-bold text-xl text-blue-900">Mr. Umer Safdar</p>
+                        <p class="text-sm text-gray-600 italic">Lab Engineer, NUST</p>
+                        <p class="text-sm mt-2 text-gray-700">Experienced in the practical deployment of UAV systems, including mission flight planning, data acquisition, and hands-on laboratory processing for geospatial data products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	        var url = owsrootUrl + L.Util.getParamString(parameters)
-
-	        //console.log(url);
-	        var parameters = L.Util.extend(defaultParameters, customParams);
-
-
-	        $.ajax({
-	            url : owsrootUrl + L.Util.getParamString(parameters),
-	            dataType : 'jsonp',
-	            jsonpCallback : 'getJson',
-	            success : handleJson
-	        });
-
-		}
-		function Identify(e)
-		{
-			var owsrootUrl = rootURL + '/geoserver/cite/wms';
-		    // set parameters needed for GetFeatureInfo WMS request
-		    var BBOX = map.getBounds().toBBoxString();
-		    var WIDTH = map.getSize().x;
-		    var HEIGHT = map.getSize().y;
-		    var X = map.layerPointToContainerPoint(e.layerPoint).x;
-		    var Y = map.layerPointToContainerPoint(e.layerPoint).y;
-		     // compose the URL for the request
-		    var URL = owsrootUrl + '?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=cite:urbanarea&QUERY_LAYERS=cite:urbanarea&BBOX='+BBOX+'&FEATURE_COUNT=1&HEIGHT='+HEIGHT+'&WIDTH='+WIDTH+'&INFO_FORMAT=application/json&SRS=EPSG%3A4326&X='+X+'&Y='+Y;
-
-// 		    map.removelayer(geojsonLayer);
-// 			popup
-// 			.setLatLng(e.latlng)
-// 			.setContent("You clicked the map at " + URL)
-// 			.openOn(map);
-		    //send the asynchronous HTTP request using jQuery $.ajax
-		    $.ajax({
-		        url: URL,
-		        dataType: "json",
-		        type: "GET",
-		        success: function(data)
-		        {
-
-		            var popup = new L.Popup
-		            ({
-		                maxWidth: 300
-		            });
-		            geojsonLayer = L.geoJson(data);
-		            geojsonLayer.addTo(map);
-// 		            var feature = $.parseJSON(data)
-
-					var jsondata = data;
-					var feature = jsondata[0];
-		            popup.setContent(data.features[0].properties.NAME10);
-		            popup.setLatLng(e.latlng);
-		            map.openPopup(popup);
-
-		        }
-		    });
-
-		}
-
-		map.on('click', Identify);
-// 		http://localhost:8081/geoserver/cite/wms?service=WMS&version=1.1.0&request=GetMap&layers=cite:parkslocal&styles=&bbox=-113.24020018621867,37.58503743142043,-109.75044605371143,41.98452371877478&width=406&height=512&srs=EPSG:4326&format=application/openlayers
-		//var restaurants = L.tileLayer.wms("http://dapeng.chpc.utah.edu:8081/geoserver/cite/wms", {
-		var restaurants = L.tileLayer.wms(rootURL + "geoserver/cite/wms", {
-	    layers: 'cite:restaurant',
-	    format: 'image/png',
-	    transparent: true,
-	    attribution: "Weather data � 2012 IEM Nexrad"
-	    });
-	    //var parks = L.tileLayer.wms("http://dapeng.chpc.utah.edu:8081/geoserver/cite/wms", {
-		var parks = L.tileLayer.wms(rootURL + "/geoserver/cite/wms", {
-	    layers: 'cite:parkslocal',
-	    format: 'image/png',
-	    transparent: true,
-	    attribution: "Weather data � 2012 IEM Nexrad"
-	    });
-	    //var osmparks = L.tileLayer.wms("http://dapeng.chpc.utah.edu:8081/geoserver/cite/wms", {
-		var osmparks = L.tileLayer.wms(rootURL + "/geoserver/cite/wms", {
-	    layers: 'cite:osmparks',
-	    format: 'image/png',
-	    transparent: true,
-	    attribution: "Weather data � 2012 IEM Nexrad"
-	    });
-
-		var osmusrest = L.tileLayer.wms(rootURL + "/geoserver/cite/wms", {
-	    layers: 'cite:usosmrest',
-	    format: 'image/png',
-	    transparent: true,
-	    attribution: "Weather data ? 2012 IEM Nexrad"
-	    });
-		var urbanarea = L.tileLayer.wms(rootURL + "/geoserver/cite/wms", {
-		    layers: 'cite:urbanarea',
-		    format: 'image/png',
-		    transparent: true,
-		    attribution: "Weather data ? 2012 IEM Nexrad"
-		    });
-
-		var utahcities = L.tileLayer.wms(rootURL + "/geoserver/cite/wms", {
-		    layers: 'cite:utahcities',
-		    format: 'image/png',
-		    transparent: true,
-		    attribution: "Weather data ? 2012 IEM Nexrad"
-		    });
-
-		var yelpdata = L.tileLayer.wms(rootURL + "/geoserver/cite/wms", {
-		    layers: 'cite:yelpdata',
-		    format: 'image/png',
-		    transparent: true,
-		    attribution: "Weather data ? 2012 IEM Nexrad"
-		    });
-		var osmus8 = L.tileLayer.wms(rootURL + "/geoserver/cite/wms", {
-		    layers: 'cite:osmus8',
-		    format: 'image/png',
-		    transparent: true,
-		    attribution: "Weather data ? 2012 IEM Nexrad"
-		    });
-    var tracts = L.tileLayer.wms(rootURL + "/geoserver/cite/wms", {
-        layers: 'cite:2010tracts',
-        format: 'image/png',
-        transparent: true,
-        attribution: "Weather data ? 2012 IEM Nexrad"
-        });
-		var overlays = {
-			"Restaurants": restaurants,
-			"Parks": parks,
-			"OSM parks": osmparks,
-			"OSM Restaurants":osmusrest,
-			"Urban areas": urbanarea,
-			"OSM Utah cities":utahcities,
-			"Yelp data":yelpdata,
-			"OSM administrative level 8":osmus8,
-      "census tracts (2010 Census)":tracts
-		};
-		L.control.layers(overlays).addTo(map);
-// 		L.control.fullscreen().addTo(map);
-	</script>
-
+        <!-- Footer -->
+        <footer class="text-center py-8 text-gray-500 text-sm">
+            <p>Training Hosted by NUST, Islamabad, Pakistan. | Course Inquiries: <a href="mailto:NUST_CPJRC_WRKSHP_2025@igis.nust.edu.pk" class="text-gray-600 hover:text-blue-600 underline">NUST_CPJRC_WRKSHP_2025@igis.nust.edu.pk</a></p>
+            <p class="mt-2">&copy; 2025 UAV Remote Sensing Training Course. All Rights Reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
