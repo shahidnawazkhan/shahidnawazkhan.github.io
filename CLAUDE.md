@@ -11,3 +11,9 @@ This is Shahid Nawaz Khan's personal academic site, served by GitHub Pages from 
 - Everything visible is in `index.html`; styles are in `css/freelancer.css` (not the `.min.css` file).
 - Highlight the owner's name in author lists with `<b class="highlight">`.
 - Teaching uses one table row per semester (`.teaching-table`), with `<span class="course-level">UG</span>` / `MS` tags.
+
+## CV PDF
+- `cv/Shahid_Nawaz_Khan_CV.pdf` is generated from `index.html` using the `@media print` styles in `css/freelancer.css`.
+- After any content change, rebuild it before merging: `node tools/build-cv-pdf.mjs` (needs the `playwright` package;
+  set `CHROMIUM_PATH` to use a specific Chromium). Check the pages visually.
+- Contact details at the top of the PDF are in the `.print-only.cv-header` block near the top of `index.html`.

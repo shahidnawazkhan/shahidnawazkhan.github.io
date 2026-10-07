@@ -553,3 +553,190 @@ fieldset[disabled] .btn-success.active {
     white-space: normal;
   }
 }
+
+/* Download CV button in the header */
+.btn-cv {
+  display: table;
+  margin: 20px auto 0;
+  color: #2C3E50;
+  border: 2px solid #2C3E50;
+  background: transparent;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.btn-cv:hover,
+.btn-cv:focus {
+  color: white;
+  background: #2C3E50;
+}
+
+/* Print / CV PDF layout */
+.print-only {
+  display: none;
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm 15mm;
+  }
+  body {
+    font-family: 'Inter', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.35;
+    color: black;
+  }
+  .print-only {
+    display: block;
+  }
+  nav,
+  header,
+  footer,
+  .scroll-top,
+  #about,
+  #contact,
+  hr {
+    display: none !important;
+  }
+  a[href]:after {
+    content: none !important;
+  }
+  a {
+    color: black !important;
+    text-decoration: none;
+  }
+  .highlight {
+    color: black;
+  }
+  .cv-header {
+    border-bottom: 2px solid #2C3E50;
+    padding-bottom: 6pt;
+    margin-bottom: 4pt;
+  }
+  .cv-header h1 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 20pt;
+    font-weight: 700;
+    text-transform: none;
+    margin: 0 0 3pt;
+  }
+  .cv-header p {
+    margin: 0;
+    font-size: 9pt;
+  }
+  section,
+  section.success {
+    padding: 0 !important;
+  }
+  .container {
+    width: auto;
+    padding: 0;
+  }
+  .row {
+    margin: 0;
+  }
+  section h2 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    text-align: left;
+    color: #2C3E50;
+    border-bottom: 1px solid #2C3E50;
+    margin: 12pt 0 4pt;
+    padding-bottom: 2pt;
+  }
+  section .text-center {
+    text-align: left;
+  }
+  section h3 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-transform: none;
+    margin: 8pt 0 3pt;
+  }
+  section h4 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: none;
+    margin: 6pt 0 2pt;
+  }
+  section h4 small {
+    text-transform: none;
+    color: #444;
+  }
+  p,
+  .teaching-table,
+  .teaching-legend {
+    font-size: 9.5pt;
+    margin: 0 0 1pt;
+  }
+  .teaching-legend {
+    font-size: 8.5pt;
+    color: #444;
+  }
+  section h2,
+  section h3,
+  section h4,
+  .text-center,
+  .row:has(h2),
+  .row:has(h3),
+  .row:has(h4) {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  /* Two-column date | details layout on paper */
+  [class*="col-lg-"] {
+    float: left;
+    padding: 0 4pt 0 0;
+    margin-left: 0 !important;
+  }
+  .col-lg-1, .col-lg-2 {
+    width: 17%;
+  }
+  .col-lg-4, .col-lg-6, .col-lg-10 {
+    width: 83%;
+  }
+  .col-lg-3 {
+    width: 24%;
+  }
+  .col-lg-8 {
+    width: 76%;
+  }
+  .col-lg-3 + .col-lg-4,
+  .col-lg-3 + .col-lg-6,
+  .col-lg-3 + .col-lg-10 {
+    width: 76%;
+  }
+  .col-lg-12,
+  .col-lg-8.col-lg-offset-1,
+  .col-lg-10.col-lg-offset-1 {
+    width: 100%;
+  }
+  .row {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 3pt;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .teaching-table {
+    margin-bottom: 4pt;
+  }
+  .teaching-table > tbody > tr > td {
+    padding: 1pt 4pt 1pt 0;
+    border: 0;
+  }
+  .teaching-table td.term {
+    width: 17%;
+  }
+  .course-level {
+    font-size: 7pt;
+    padding: 1px 3px;
+    border-color: #555;
+  }
+}
