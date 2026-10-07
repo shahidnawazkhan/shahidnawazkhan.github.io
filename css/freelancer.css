@@ -519,3 +519,37 @@ fieldset[disabled] .btn-success.active {
 .highlight {
   color: crimson;
 }
+
+.teaching-legend {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 0;
+}
+.teaching-table {
+  margin-bottom: 30px;
+}
+.teaching-table > tbody > tr > td {
+  border-top: 1px solid #eee;
+  padding: 6px 8px;
+  vertical-align: top;
+}
+.teaching-table td.term {
+  width: 22%;
+  white-space: nowrap;
+  font-weight: 700;
+}
+.course-level {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 5px;
+  border: 1px solid #2C3E50;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+@media (max-width: 767px) {
+  .teaching-table td.term {
+    white-space: normal;
+  }
+}
