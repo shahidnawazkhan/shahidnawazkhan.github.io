@@ -515,3 +515,7 @@ fieldset[disabled] .btn-success.active {
 }
 /*leaflet map*/
 #mapid { height: 180px; }
+
+.highlight {
+  color: crimson;
+}
