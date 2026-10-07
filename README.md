@@ -1,22 +1,21 @@
-# A website for Shahid Nawaz Khan's CV
-Thi project hosts Shahid Nawaz Khan's CV
+# shahidnawazkhan.github.io
 
-## Getting Started
+Personal academic website of **Shahid Nawaz Khan**, Assistant Professor of Geoinformatics at the
+National University of Sciences and Technology (NUST), Pakistan.
 
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/freelancer/)
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-freelancer.git`
-* Fork the repo
+Live site: https://shahidnawazkhan.github.io
 
-## Creator
+## Structure
 
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+- `index.html` – the main CV page (bio, education, employment, publications, teaching, awards, skills, contact)
+- `css/freelancer.css` – site styles
+- `img/` – photos and icons
+- `pubs/` – PDFs of selected publications
+- `media/` – media coverage
+- `webmap/` – standalone web map
 
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+The site is served directly by GitHub Pages; there is no build step. Edit `index.html` and push to update.
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+## Credits
 
-## Copyright and License
-
-Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-freelancer/blob/gh-pages/LICENSE) license.
+Based on the [Freelancer](https://startbootstrap.com/theme/freelancer) theme by Start Bootstrap (MIT License).
