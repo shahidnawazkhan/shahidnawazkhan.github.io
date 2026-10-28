@@ -836,12 +836,8 @@ fieldset[disabled] .btn-success.active {
   font-size: 14px;
   font-weight: 700;
 }
-.pub-tab:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
-.pub-tab:disabled:hover {
-  border-color: #e6e1d8;
+.pub-tab[hidden] {
+  display: none;
 }
 .pub-tab.active {
   background: #2C3E50;

@@ -1467,12 +1467,12 @@
             buttons.forEach(function (btn) {
                 var key = btn.getAttribute('data-year');
                 var n = rows.filter(function (r) { return bucket(r) === key; }).length;
-                btn.querySelector('.pub-tab-meta').textContent = n ? n + ' ' + noun[n === 1 ? 0 : 1] : 'none';
+                btn.querySelector('.pub-tab-meta').textContent = n + ' ' + noun[n === 1 ? 0 : 1];
                 if (n) {
                     usable.push(btn);
                     btn.addEventListener('click', function () { select(key); });
                 } else {
-                    btn.disabled = true;
+                    btn.hidden = true;
                 }
             });
             function select(key) {
