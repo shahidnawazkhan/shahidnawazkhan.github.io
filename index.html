@@ -367,28 +367,22 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="pub-tabs" data-kind="journal" role="tablist" aria-label="Journal articles by year" hidden>
                         <button type="button" class="pub-tab" role="tab" data-year="2026" aria-selected="false">
-                            <span class="pub-tab-num">2026</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2026 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="2025" aria-selected="false">
-                            <span class="pub-tab-num">2025</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2025 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="2024" aria-selected="false">
-                            <span class="pub-tab-num">2024</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2024 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="2023" aria-selected="false">
-                            <span class="pub-tab-num">2023</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2023 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="2022" aria-selected="false">
-                            <span class="pub-tab-num">2022</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2022 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="older" aria-selected="false" title="Before 2022" aria-label="Before 2022">
-                            <span class="pub-tab-num">&le;2021</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">&le;2021 <span class="pub-tab-count"></span></span>
                         </button>
                     </div>
                 </div>
@@ -591,28 +585,22 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="pub-tabs" data-kind="conference" role="tablist" aria-label="Conference papers by year" hidden>
                         <button type="button" class="pub-tab" role="tab" data-year="2026" aria-selected="false">
-                            <span class="pub-tab-num">2026</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2026 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="2025" aria-selected="false">
-                            <span class="pub-tab-num">2025</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2025 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="2024" aria-selected="false">
-                            <span class="pub-tab-num">2024</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2024 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="2023" aria-selected="false">
-                            <span class="pub-tab-num">2023</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2023 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="2022" aria-selected="false">
-                            <span class="pub-tab-num">2022</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">2022 <span class="pub-tab-count"></span></span>
                         </button>
                         <button type="button" class="pub-tab" role="tab" data-year="older" aria-selected="false" title="Before 2022" aria-label="Before 2022">
-                            <span class="pub-tab-num">&le;2021</span>
-                            <span class="pub-tab-meta"></span>
+                            <span class="pub-tab-num">&le;2021 <span class="pub-tab-count"></span></span>
                         </button>
                     </div>
                 </div>
@@ -1467,7 +1455,8 @@
             buttons.forEach(function (btn) {
                 var key = btn.getAttribute('data-year');
                 var n = rows.filter(function (r) { return bucket(r) === key; }).length;
-                btn.querySelector('.pub-tab-meta').textContent = n + ' ' + noun[n === 1 ? 0 : 1];
+                btn.querySelector('.pub-tab-count').textContent = '(' + n + ')';
+                btn.setAttribute('aria-label', (btn.getAttribute('title') || key) + ', ' + n + ' ' + noun[n === 1 ? 0 : 1]);
                 if (n) {
                     usable.push(btn);
                     btn.addEventListener('click', function () { select(key); });

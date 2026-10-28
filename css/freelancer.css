@@ -810,7 +810,7 @@ fieldset[disabled] .btn-success.active {
   align-items: flex-start;
   gap: 4px;
   min-width: 0;
-  padding: 12px 14px;
+  padding: 14px 12px;
   text-align: left;
   color: #2C3E50;
   background: white;
@@ -827,14 +827,13 @@ fieldset[disabled] .btn-success.active {
 }
 .pub-tab-num {
   font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1;
   color: #c4643c;
   white-space: nowrap;
 }
-.pub-tab-meta {
-  font-size: 14px;
-  font-weight: 700;
+.pub-tab-count {
+  font-size: 0.8em;
 }
 .pub-tab[hidden] {
   display: none;
@@ -847,9 +846,6 @@ fieldset[disabled] .btn-success.active {
 }
 .pub-tab.active .pub-tab-num {
   color: #e3cfa6;
-}
-.pub-tab.active .pub-tab-meta {
-  color: white;
 }
 .pub-hidden {
   display: none;
