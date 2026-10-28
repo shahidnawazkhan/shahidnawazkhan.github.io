@@ -916,3 +916,307 @@ fieldset[disabled] .btn-success.active {
     color: black;
   }
 }
+
+/* ==========================================================================
+   Visual refresh (screen only, so the CV PDF keeps its own print layout)
+   Palette matches the publication year cards.
+   ========================================================================== */
+@media screen {
+  :root {
+    --navy: #2C3E50;
+    --ink: #1f2a37;
+    --accent: #c4643c;       /* large numerals, rules, dots */
+    --accent-text: #a54d29;  /* links and small accent text (AA on white and warm bg) */
+    --warm: #f8f5ef;
+    --line: #e6e1d8;
+    --muted: #6b6560;
+  }
+  body {
+    color: var(--ink);
+  }
+  p {
+    line-height: 1.6;
+  }
+  a,
+  a:focus,
+  a:active,
+  a.active {
+    color: var(--accent-text);
+  }
+  a:hover {
+    color: var(--navy);
+  }
+  .highlight {
+    color: var(--accent-text);
+  }
+  .text-justify {
+    text-align: left;
+  }
+
+  /* Navigation */
+  .navbar-custom .navbar-nav li a:hover {
+    color: #e3cfa6;
+  }
+  .navbar-custom .navbar-nav li.active a,
+  .navbar-custom .navbar-nav li.active a:hover,
+  .navbar-custom .navbar-nav li.active a:focus {
+    background: var(--accent);
+    border-radius: 6px;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(180deg, var(--warm) 0%, #fff 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  header .intro-photo {
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(44, 62, 80, 0.18);
+  }
+  header .intro-text .name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  header .intro-text .intro-role {
+    color: var(--muted);
+  }
+  header .intro-text .skills {
+    color: var(--accent-text);
+    font-weight: 700;
+  }
+  .btn-cv {
+    color: white;
+    background: var(--navy);
+    border: 2px solid var(--navy);
+    border-radius: 8px;
+    padding: 9px 18px;
+    letter-spacing: 0.04em;
+  }
+  .btn-cv:hover,
+  .btn-cv:focus {
+    color: white;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* Sections: alternate white / warm */
+  section.success:nth-of-type(odd) {
+    background: var(--warm);
+  }
+  section h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    text-transform: none;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  hr.star-light,
+  hr.star-primary {
+    border-top: 3px solid var(--accent);
+    border-radius: 2px;
+    max-width: 56px;
+    margin: 14px auto 30px;
+  }
+  hr.star-light:after,
+  hr.star-primary:after {
+    content: none;
+  }
+  section h3 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--accent-text);
+    margin: 30px 0 14px;
+  }
+  section h3:after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  section h4 {
+    font-size: 16px;
+    text-transform: none;
+    color: var(--navy);
+  }
+  section h4 small {
+    text-transform: none;
+    color: var(--muted);
+  }
+
+  /* Education / Employment as a timeline */
+  .cv-entry {
+    margin-bottom: 0;
+  }
+  .cv-entry .cv-date {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  .cv-entry .cv-date + div {
+    position: relative;
+    border-left: 2px solid var(--line);
+    padding-left: 24px;
+    padding-bottom: 20px;
+  }
+  .cv-entry .cv-date + div:before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 7px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--accent);
+  }
+  .cv-entry:first-of-type .cv-date + div:before {
+    background: var(--accent);
+  }
+  .cv-entry:last-child .cv-date + div {
+    padding-bottom: 4px;
+  }
+  .cv-entry .cv-title {
+    color: var(--navy);
+  }
+  .cv-entry .cv-detail {
+    color: #4a4f57;
+  }
+  @media (min-width: 768px) {
+    .cv-entry .cv-date {
+      text-align: right;
+      padding-right: 22px;
+    }
+  }
+
+  /* Dated lists: publications, talks, awards, media */
+  .item > [class*="col-"] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .item p {
+    margin: 0;
+  }
+  .item > .col-lg-1 p {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  .item:hover > .col-lg-10 {
+    background: rgba(196, 100, 60, 0.05);
+  }
+  @media (min-width: 1200px) {
+    /* Equal-height columns so the year and entry dividers line up */
+    .item {
+      display: flex;
+    }
+    .item.pub-hidden {
+      display: none;
+    }
+    .item:before,
+    .item:after {
+      display: none;
+    }
+    /* Sub-heading rules span the same width as the entries */
+    .col-lg-8.col-lg-offset-1:has(> h3),
+    .col-lg-10.col-lg-offset-1:has(> .pub-tabs) {
+      width: 91.66666667%;
+    }
+  }
+  @media (max-width: 1199px) {
+    .item > .col-lg-1 {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  /* Chips for skills and interests */
+  .chips {
+    margin: 0;
+  }
+  .chip {
+    display: inline-block;
+    margin: 0 6px 8px 0;
+    padding: 4px 12px;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--navy);
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+  .skill-row {
+    margin-bottom: 8px;
+  }
+  .skill-row > div:first-child p {
+    font-weight: 700;
+    color: var(--navy);
+    padding-top: 4px;
+  }
+
+  /* Teaching */
+  .teaching-table td.term {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    color: var(--accent-text);
+  }
+  .teaching-table > tbody > tr > td {
+    border-top-color: var(--line);
+  }
+  .course-level {
+    border-color: var(--line);
+    background: var(--warm);
+    color: var(--navy);
+  }
+
+  /* Contact */
+  #contact {
+    background: white;
+  }
+  .contact-list {
+    background: var(--warm);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 24px 8px;
+  }
+  .contact-list dt {
+    color: var(--accent-text);
+    letter-spacing: 0.08em;
+    font-size: 12px;
+  }
+  #mapid {
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  @media (max-width: 991px) {
+    #mapid {
+      margin-top: 16px;
+    }
+  }
+
+  /* Footer and scroll button */
+  footer .footer-below {
+    background: var(--navy);
+  }
+  .scroll-top .btn {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+}
+
+@media print {
+  /* Chips print as a plain comma list */
+  .chip {
+    display: inline;
+  }
+  .chip:not(:last-child):after {
+    content: ", ";
+  }
+}
