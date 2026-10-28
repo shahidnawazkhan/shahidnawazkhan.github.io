@@ -794,21 +794,101 @@ fieldset[disabled] .btn-success.active {
   font-size: 16px;
 }
 
-/* "Show all" toggles for long lists */
-.show-more {
-  margin: 4px 0 10px;
+/* Publications-by-year cards */
+.pub-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin: 0 0 16px;
 }
-.btn-show-more {
+.pub-tabs[hidden] {
+  display: none;
+}
+.pub-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 14px 12px;
+  text-align: left;
   color: #2C3E50;
-  border: 1px solid #2C3E50;
-  background: transparent;
-  font-size: 14px;
-  padding: 4px 12px;
+  background: white;
+  border: 1px solid #e6e1d8;
+  border-radius: 12px;
+  transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
-.btn-show-more:hover,
-.btn-show-more:focus {
-  color: white;
+.pub-tab:hover {
+  border-color: #c4643c;
+}
+.pub-tab:focus-visible {
+  outline: 2px solid #c4643c;
+  outline-offset: 2px;
+}
+.pub-tab-num {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-size: 34px;
+  line-height: 1;
+  color: #c4643c;
+}
+.pub-tab-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.pub-tab-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+}
+.pub-tab-meta {
+  font-size: 13px;
+  color: #6b6b6b;
+}
+.pub-tab:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.pub-tab:disabled:hover {
+  border-color: #e6e1d8;
+}
+.pub-tab.active {
   background: #2C3E50;
+  border-color: #2C3E50;
+  color: white;
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.25);
+}
+.pub-tab.active .pub-tab-num {
+  color: #e3cfa6;
+}
+.pub-tab.active .pub-tab-meta {
+  color: #c9d1da;
+}
+.pub-hidden {
+  display: none;
+}
+/* On narrow screens the year sits on its own line; it's redundant inside a single-year card */
+@media screen and (max-width: 1199px) {
+  .pub:not(.pub-older) > .col-lg-1 {
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+  .pub-tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .pub-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .pub-tab {
+    padding: 10px;
+    gap: 8px;
+  }
+  .pub-tab-num {
+    font-size: 28px;
+  }
 }
 
 /* Contact section */
@@ -837,12 +917,10 @@ fieldset[disabled] .btn-success.active {
 
 @media print {
   /* Show every publication in the PDF, hide the toggles */
-  .collapse {
+  .pub-hidden {
     display: block !important;
-    height: auto !important;
-    visibility: visible !important;
   }
-  .show-more {
+  .row:has(.pub-tabs) {
     display: none !important;
   }
   .cv-entry {

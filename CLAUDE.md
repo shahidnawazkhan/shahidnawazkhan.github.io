@@ -10,6 +10,8 @@ This is Shahid Nawaz Khan's personal academic site, served by GitHub Pages from 
 ## Site structure
 - Everything visible is in `index.html`; styles are in `css/freelancer.css` (not the `.min.css` file).
 - Highlight the owner's name in author lists with `<b class="highlight">`.
+- Each publication is a `<div class="row pub" data-kind="journal|conference" data-year="YYYY">` row, newest first.
+  The year cards above each list count these rows automatically, so a new paper needs only the row itself.
 - Teaching uses one table row per semester (`.teaching-table`), with `<span class="course-level">UG</span>` / `MS` tags.
 
 ## CV PDF
