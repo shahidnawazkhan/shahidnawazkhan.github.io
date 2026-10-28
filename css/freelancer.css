@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
 }
 p {
-  font-size: 20px;
+  font-size: 17px;
 }
 p.small {
   font-size: 16px;
@@ -37,8 +37,8 @@ hr.star-primary {
   border: none;
   border-top: solid 5px;
   text-align: center;
-  max-width: 250px;
-  margin: 25px auto 30px;
+  max-width: 160px;
+  margin: 18px auto 28px;
 }
 hr.star-light:after,
 hr.star-primary:after {
@@ -69,43 +69,62 @@ hr.star-primary:after {
   margin: 0 auto;
 }
 header {
-  text-align: center;
-  /*background: #18BC9C;*/
   background: white;
   color: black;
 }
 header .container {
-  /*padding-top: 100px;*/
-  padding-top: 80px;
-  padding-bottom: 50px;
+  padding-top: 90px;
+  padding-bottom: 30px;
 }
-header img {
-  display: block;
-  margin: 0 auto 20px;
+header .intro-photo {
+  margin: 0 auto 15px;
+  max-width: 180px;
+  border-radius: 4px;
+}
+header .intro-text {
+  text-align: center;
 }
 header .intro-text .name {
-  display: block;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /*text-transform: uppercase;*/
+  text-transform: none;
   font-weight: 700;
-  font-size: 2em;
-  /*font-size: 1.5em;*/
+  font-size: 30px;
+  margin: 0 0 8px;
+}
+header .intro-text .intro-role {
+  font-size: 17px;
+  margin-bottom: 8px;
 }
 header .intro-text .skills {
-  font-size: 1.25em;
-  font-weight: 300;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-bottom: 0;
 }
 @media (min-width: 768px) {
   header .container {
-    padding-top: 200px;
-    padding-bottom: 100px;
+    padding-top: 150px;
+    padding-bottom: 40px;
+  }
+  header .intro {
+    display: flex;
+    align-items: center;
+  }
+  header .intro-photo {
+    margin: 0;
+    max-width: 100%;
+  }
+  header .intro-text {
+    text-align: left;
   }
   header .intro-text .name {
-    /*font-size: 4.75em;*/
-    font-size: 3.75em;
+    font-size: 40px;
+  }
+  header .intro-text .intro-role {
+    font-size: 19px;
   }
   header .intro-text .skills {
-    font-size: 1.75em;
+    font-size: 20px;
   }
 }
 .navbar-custom {
@@ -188,11 +207,15 @@ header .intro-text .skills {
   }
 }
 section {
-  padding: 100px 0;
+  padding: 50px 0 20px;
 }
 section h2 {
   margin: 0;
-  font-size: 3em;
+  font-size: 30px;
+}
+section h3 {
+  font-size: 20px;
+  margin: 24px 0 12px;
 }
 section.success {
   /*background: #18BC9C;*/
@@ -201,10 +224,19 @@ section.success {
 }
 @media (max-width: 767px) {
   section {
-    padding: 75px 0;
+    padding: 35px 0 10px;
   }
-  section.first {
-    padding-top: 75px;
+  section h2 {
+    font-size: 24px;
+  }
+  section h3 {
+    font-size: 17px;
+  }
+  section h4 {
+    font-size: 15px;
+  }
+  .text-justify {
+    text-align: left;
   }
 }
 #portfolio .portfolio-item {
@@ -438,18 +470,20 @@ fieldset[disabled] .btn-success.active {
 }
 .scroll-top {
   position: fixed;
-  right: 2%;
-  bottom: 2%;
-  width: 50px;
-  height: 50px;
+  right: 10px;
+  bottom: 10px;
+  width: 38px;
+  height: 38px;
   z-index: 1049;
+  opacity: 0.8;
 }
 .scroll-top .btn {
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
+  font-size: 15px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
   border-radius: 100%;
-  line-height: 28px;
+  line-height: 36px;
 }
 .scroll-top .btn:focus {
   outline: none;
@@ -526,7 +560,8 @@ fieldset[disabled] .btn-success.active {
   margin-bottom: 0;
 }
 .teaching-table {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 .teaching-table > tbody > tr > td {
   border-top: 1px solid #eee;
@@ -556,8 +591,7 @@ fieldset[disabled] .btn-success.active {
 
 /* Download CV button in the header */
 .btn-cv {
-  display: table;
-  margin: 20px auto 0;
+  margin-top: 16px;
   color: #2C3E50;
   border: 2px solid #2C3E50;
   background: transparent;
@@ -738,5 +772,86 @@ fieldset[disabled] .btn-success.active {
     font-size: 7pt;
     padding: 1px 3px;
     border-color: #555;
+  }
+}
+
+/* Compact date | details entries (Education, Employment) */
+.cv-entry {
+  margin-bottom: 14px;
+}
+.cv-entry .cv-date {
+  font-size: 15px;
+  color: #555;
+  padding-top: 2px;
+}
+.cv-entry p {
+  margin: 0;
+}
+.cv-entry .cv-title {
+  font-weight: 700;
+}
+.cv-entry .cv-detail {
+  font-size: 16px;
+}
+
+/* "Show all" toggles for long lists */
+.show-more {
+  margin: 4px 0 10px;
+}
+.btn-show-more {
+  color: #2C3E50;
+  border: 1px solid #2C3E50;
+  background: transparent;
+  font-size: 14px;
+  padding: 4px 12px;
+}
+.btn-show-more:hover,
+.btn-show-more:focus {
+  color: white;
+  background: #2C3E50;
+}
+
+/* Contact section */
+#contact {
+  padding-bottom: 40px;
+}
+.contact-list dt {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #555;
+}
+.contact-list dd {
+  font-size: 17px;
+  margin-bottom: 14px;
+  word-break: break-word;
+}
+.contact-profiles img {
+  height: 32px;
+  width: auto;
+  margin-right: 10px;
+}
+.footer-social {
+  margin-bottom: 12px;
+}
+
+@media print {
+  /* Show every publication in the PDF, hide the toggles */
+  .collapse {
+    display: block !important;
+    height: auto !important;
+    visibility: visible !important;
+  }
+  .show-more {
+    display: none !important;
+  }
+  .cv-entry {
+    margin-bottom: 3pt;
+  }
+  .cv-entry p,
+  .cv-entry .cv-detail,
+  .cv-entry .cv-date {
+    font-size: 9.5pt;
+    color: black;
   }
 }
